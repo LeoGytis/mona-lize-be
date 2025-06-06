@@ -9,7 +9,7 @@ import menuRoutes from './routes/menuRoutes.js';
 
 const app = express();
 
-const port = process.env.PORT || 3001;
+const port = encodeURIComponent(process.env.PORT) || 3001;
 const username = encodeURIComponent(process.env.DB_USERNAME);
 const password = encodeURIComponent(process.env.DB_PASSWORD);
 const dbURI = `mongodb+srv://${username}:${password}@mona-lize.oxkq4p6.mongodb.net/?retryWrites=true&w=majority&appName=mona-lize`;
