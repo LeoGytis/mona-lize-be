@@ -3,13 +3,11 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
-import errorHandler from './middleware/error.js';
-import notFound from './middleware/notFound.js';
 import menuRoutes from './routes/menuRoutes.js';
 
 const app = express();
 
-const port = encodeURIComponent(process.env.PORT) || 3001;
+const port = encodeURIComponent(process.env.PORT);
 const username = encodeURIComponent(process.env.DB_USERNAME);
 const password = encodeURIComponent(process.env.DB_PASSWORD);
 const dbURI = `mongodb+srv://${username}:${password}@mona-lize.oxkq4p6.mongodb.net/?retryWrites=true&w=majority&appName=mona-lize`;
@@ -56,5 +54,5 @@ app.use(morgan('dev'));
 app.use('/menu', menuRoutes);
 
 // Apply error handling middleware last
-app.use(notFound);
-app.use(errorHandler);
+// app.use(notFound);
+// app.use(errorHandler);
